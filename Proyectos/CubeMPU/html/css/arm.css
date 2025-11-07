@@ -1,0 +1,171 @@
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #325c71;
+  color: #f1f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+/* ===========================
+   Variables 
+   =========================== */
+:root {
+  --gap: 1.5rem;
+  --radius: 0.5rem;
+  --clr-panel-bg: #7098ab;
+  --clr-card-bg: #ffffff;
+  --clr-accent: #2563eb;
+  --clr-accent-hover: #1e40af;
+  --clr-text-light: #e2e8f0;
+  --clr-text-dark: #1f2937;
+  --clr-border: #d1d5db;
+  --clr-log-bg: #f9fafb;
+}
+
+/* ===========================
+   Layout principal
+   =========================== */
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+@media (max-width: 800px) {
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===========================
+   Panel Izquierdo
+   =========================== */
+.left-panel {
+  background: var(--clr-panel-bg);
+  border-radius: var(--radius);
+  padding: var(--gap);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.left-panel h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+}
+
+.left-panel h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #f1f5f9;
+  margin-bottom: 0.5rem;
+}
+
+.left-panel ul {
+  list-style: disc inside;
+  color: var(--clr-text-light);
+}
+
+.left-panel li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ===========================
+   Panel Derecho
+   =========================== */
+.right-panel {
+  background-color: var(--clr-card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 1);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-panel h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--clr-text-dark);
+  margin-bottom: 1rem;
+}
+
+/* Botón primary */
+.right-panel button {
+  margin-bottom: 1.25rem;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--clr-accent);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 2px solid var(--clr-accent);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.right-panel button:hover {
+  background-color: var(--clr-accent-hover);
+  border-color: var(--clr-accent-hover);
+}
+
+/* ===========================
+   Viewer Card (Processing + Logs)
+   =========================== */
+.viewer-card {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap);
+}
+
+.viewer-card canvas {
+  width: 100%;
+  height: auto;
+  background-color: var(--clr-log-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: 4px;
+}
+
+/* Panel de logs */
+.log-panel {
+  width: 100%;
+  background-color: var(--clr-log-bg);
+  color: var(--clr-text-dark);
+  font-family: monospace;
+  font-size: 0.875rem;
+  padding: 0.75rem;
+  border: 1px solid var(--clr-border);
+  border-radius: 4px;
+  height: 160px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}

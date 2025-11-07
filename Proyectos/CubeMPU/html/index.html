@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giroscopio 3D</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/arm.css" />
+  <script
+    src="https://cdn.jsdelivr.net/gh/processing-js/processing-js@master/processing.min.js"
+  ></script>
+</head>
+
+<body>
+  <main class="main-container">
+    <!-- PANEL IZQUIERDO: información del proyecto -->
+    <aside class="left-panel">
+      <h1>Proyecto final Giroscopio 3D</h1>
+
+      <section>
+        <h2>Grupo</h2>
+        <ul>
+          <li>6EM32</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Alumnos</h2>
+        <ul>
+          <li>Ramírez Flores Fernando Uriel</li>
+          <li>Almeida Pérez Alexis Daniel</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Materiales</h2>
+        <ul>
+          <li>UNIT Pulsar ESP32-C6</li>
+          <li>MPU6050</li>
+          <li>Expansor I2C</li>
+        </ul>
+      </section>
+    </aside>
+
+    <!-- PANEL DERECHO: interfaz en vivo -->
+    <section class="right-panel">
+      <h2>Interfaz en Vivo</h2>
+      <button id="btnConnect">Conectar Serial</button>
+
+      <div class="viewer-card">
+        <!-- sketch de Processing.js -->
+        <canvas
+          id="canvas1"
+          width="640"
+          height="360"
+          data-processing-sources="cubo.pde"
+        ></canvas>
+
+        <!-- Panel de logs -->
+        <pre id="log" class="log-panel"></pre>
+      </div>
+    </section>
+  </main>
+
+  <!-- Aquí añadimos de nuevo el script que gestiona el puerto serie -->
+  <script src="js/serial.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+/* Variables de color */
+:root {
+  --color-bg: #111827;          /* Fondo principal (Gray-900) */
+  --color-text: #E5E7EB;        /* Texto principal (Gray-200) */
+  --color-subtext: #9CA3AF;     /* Texto secundario (Gray-400) */
+  --color-panel-bg: #1F2937;    /* Panel izquierdo / card fondo (Gray-800) */
+  --color-card-bg: #374151;     /* Fondo de canvas y GIF (Gray-700) */
+  --color-border: #4B5563;      /* Bordes y líneas (Gray-600) */
+  --color-accent: #3B82F6;      /* Azul vivo (Blue-500) */
+  --color-accent-hover: #2563EB; /* Azul oscuro hover (Blue-600) */
+}
+
+/* Reset y caja de borde */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* HTML y body al 100% */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+/* Contenedor principal en grid de dos columnas */
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* — Panel izquierdo — */
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  padding-right: 1rem;
+  background-color: var(--color-panel-bg);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.left-panel h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.left-panel p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-subtext);
+}
+
+/* Contenedor y leyenda del GIF */
+.gif-container {
+  width: fit-content;
+  margin: 1rem auto 0;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.25rem;
+}
+
+.gif-demo,
+.gif-container img {
+  display: block;
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.gif-caption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-subtext);
+  text-align: center;
+}
+
+/* — Panel derecho (card) — */
+.right-panel {
+  background-color: var(--color-panel-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-panel h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+/* Botón “Conectar Serial” */
+.right-panel button {
+  margin-bottom: 1.25rem;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--color-accent);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 2px solid var(--color-accent);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.right-panel button:hover {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+/* Contenedor de Processing.js y GIF */
+.viewer-card {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--color-panel-bg);
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+/* Canvas de Processing */
+.viewer-card canvas {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+
+/* Área de logs */
+.log-panel {
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 700px;
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+  font-family: 'Roboto', monospace;
+  font-size: 0.875rem;
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  height: 160px;
+  overflow-y: auto;
+}
+
+/* Responsive: una columna en pantallas pequeñas */
+@media (max-width: 800px) {
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+  .right-panel {
+    margin-top: 2rem;
+  }
+}
